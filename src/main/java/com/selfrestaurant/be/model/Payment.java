@@ -22,6 +22,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Phương thức thanh toán 
+ */
+
 @Getter
 @Setter
 @AllArgsConstructor

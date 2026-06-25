@@ -17,6 +17,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * chi tiết OptionGroup
+ * VD: size: có M, L + 10.000....
+ */
+
 @Getter
 @Setter
 @AllArgsConstructor

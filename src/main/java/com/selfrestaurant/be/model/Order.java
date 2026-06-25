@@ -19,6 +19,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Là giỏ hàng sau khi thêm ít nhất 1 sản phẩm
+ */
+
 @Getter
 @Setter
 @AllArgsConstructor
