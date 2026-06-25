@@ -21,6 +21,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Là các sản phẩm trong menu, được phân loại theo Category
+ */
+
 @Getter
 @Setter
 @AllArgsConstructor

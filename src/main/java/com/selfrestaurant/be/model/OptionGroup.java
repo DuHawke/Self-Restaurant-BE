@@ -20,6 +20,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Topping, size, temperature
+ */
+
 @Getter
 @Setter
 @AllArgsConstructor

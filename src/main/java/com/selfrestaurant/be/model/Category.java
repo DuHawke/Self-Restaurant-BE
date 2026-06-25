@@ -17,6 +17,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Phân loại đồ uống 
+ * VD: Vietnamese coffee, Milk tea, Fruit tea, Matcha & Houjicha..
+ */
+
 @Getter
 @Setter
 @AllArgsConstructor
