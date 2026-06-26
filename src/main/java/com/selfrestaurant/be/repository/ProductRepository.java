@@ -11,4 +11,6 @@ import com.selfrestaurant.be.model.Product;
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     List<Product> findByCategoryId(Integer categoryId);
+
+    List<Product> findByProductCategoryCategoryId(Integer categoryId);
 }
