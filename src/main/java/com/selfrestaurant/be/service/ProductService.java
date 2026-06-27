@@ -27,7 +27,7 @@ public class ProductService {
     public List<ProductResponse> getProductsByCategory(Integer categoryId) {
 
         return productRepository
-                .findByProductCategoryCategoryId(categoryId)
+                .findByCategoryId(categoryId)
                 .stream()
                 .map(this::mapToResponse)
                 .toList();
