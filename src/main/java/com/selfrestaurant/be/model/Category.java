@@ -41,7 +41,7 @@ public class Category {
     @Column(name = "category_url")
     private String categoryUrl;
 
-    @OneToMany(mappedBy = "productCategory", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "categoryId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Product> products = new ArrayList<>();
 
 }
