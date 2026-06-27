@@ -30,7 +30,6 @@ import lombok.Setter;
 public class OptionGroup {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "group_id")
     private Integer groupId;
 
