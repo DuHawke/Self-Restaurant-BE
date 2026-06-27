@@ -35,7 +35,6 @@ import lombok.Setter;
 public class OrderItem {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_item_id")
     private Integer orderItemId;
 
