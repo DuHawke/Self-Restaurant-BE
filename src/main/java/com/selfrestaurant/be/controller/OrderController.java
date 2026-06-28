@@ -15,7 +15,7 @@ import com.selfrestaurant.be.service.OrderService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/order")
+@RequestMapping("/self-restaurant/order")
 @RequiredArgsConstructor
 public class OrderController {
 

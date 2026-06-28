@@ -13,7 +13,7 @@ import com.selfrestaurant.be.service.PaymentService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/payment")
+@RequestMapping("/self-restaurant/payment")
 @RequiredArgsConstructor
 public class PaymentController {
 

@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/categories")
+@RequestMapping("/self-restaurant/categories")
 public class CategoryController {
 
     private final CategoryService categoryService;
