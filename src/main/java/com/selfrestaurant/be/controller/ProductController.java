@@ -14,7 +14,7 @@ import com.selfrestaurant.be.service.ProductService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/self-restaurant/product")
 @RequiredArgsConstructor
 public class ProductController {
 
