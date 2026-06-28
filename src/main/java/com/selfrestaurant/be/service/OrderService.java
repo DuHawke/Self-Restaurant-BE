@@ -2,6 +2,7 @@ package com.selfrestaurant.be.service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -29,8 +30,7 @@ public class OrderService {
     private final ProductRepository productRepository;
     private final OptionRepository optionRepository;
 
-    public OrderResponse createOrder(
-            CreateOrderRequest request) {
+    public OrderResponse createOrder(CreateOrderRequest request) {
 
         Order order = new Order();
 
@@ -43,10 +43,14 @@ public class OrderService {
 
             Product product = productRepository
                     .findById(itemRequest.getProductId())
-                    .orElseThrow(() -> new RuntimeException("Product not found"));
+                    .orElseThrow(() -> new RuntimeException("Product not found: " + itemRequest.getProductId()));
 
-            List<Option> options = optionRepository
-                    .findAllById(itemRequest.getSelectedOptionIds());
+            // Bug BE-2 fix: tránh NullPointerException khi selectedOptionIds là null hoặc empty
+            // Trước: optionRepository.findAllById(null) → NullPointerException
+            List<Integer> optionIds = itemRequest.getSelectedOptionIds();
+            List<Option> options = (optionIds == null || optionIds.isEmpty())
+                    ? Collections.emptyList()
+                    : optionRepository.findAllById(optionIds);
 
             BigDecimal optionPrice = options.stream()
                     .map(Option::getOptionPrice)
@@ -68,8 +72,7 @@ public class OrderService {
 
             totalAmount = totalAmount.add(
                     unitPrice.multiply(
-                            BigDecimal.valueOf(
-                                    itemRequest.getQuantity())));
+                            BigDecimal.valueOf(itemRequest.getQuantity())));
         }
 
         order.setItems(orderItems);
@@ -89,7 +92,7 @@ public class OrderService {
 
         Order order = orderRepository
                 .findById(orderId)
-                .orElseThrow(() -> new RuntimeException("Order not found"));
+                .orElseThrow(() -> new RuntimeException("Order not found: " + orderId));
 
         return OrderResponse.builder()
                 .orderId(order.getOrderId())
