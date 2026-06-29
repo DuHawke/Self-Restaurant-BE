@@ -28,10 +28,10 @@ INSERT INTO product (product_id, product_name, product_price, product_url, categ
 (13, 'Lychee Artichoke Jasmine Tea',               35000.00, 'https://i.pinimg.com/1200x/5e/63/e6/5e63e6ffe3019bd6ba9f7bad24062266.jpg', 3),
 
 (14, 'Matcha Latte',            55000.00, 'https://i.pinimg.com/736x/28/b0/7f/28b07f5c9a74fdcbc84c465cf54571a8.jpg', 4),
-(15, 'Houjicha Latte',          55000.00, 'https://i.pinimg.com/1200x/70/9e/59/709e599c84610aca9a1dbcfb233e2055.jpg', 4),;
-(16, 'Iced Blended Matcha',          55000.00, 'https://i.pinimg.com/1200x/63/23/f9/6323f999dcfde756c62589d16e1df2cf.jpg', 4),;
-(17, 'Golden Orange Matcha',          55000.00, 'https://i.pinimg.com/736x/52/68/d4/5268d4aeeaaf347520a221ad55604202.jpg', 4),;
-(18, 'Coco Houjicha',          55000.00, 'https://i.pinimg.com/1200x/95/fd/b9/95fdb92b5ee3d408a01a9494946f091f.jpg', 4),;
+(15, 'Houjicha Latte',          55000.00, 'https://i.pinimg.com/1200x/70/9e/59/709e599c84610aca9a1dbcfb233e2055.jpg', 4),
+(16, 'Iced Blended Matcha',          55000.00, 'https://i.pinimg.com/1200x/63/23/f9/6323f999dcfde756c62589d16e1df2cf.jpg', 4),
+(17, 'Golden Orange Matcha',          55000.00, 'https://i.pinimg.com/736x/52/68/d4/5268d4aeeaaf347520a221ad55604202.jpg', 4),
+(18, 'Coco Houjicha',          55000.00, 'https://i.pinimg.com/1200x/95/fd/b9/95fdb92b5ee3d408a01a9494946f091f.jpg', 4),
 (19, 'Cheese Houjicha (Roasted Green Tea)',          55000.00, 'https://i.pinimg.com/736x/28/18/b3/2818b36cf9dadaf45c4a467e7dc47aa2.jpg', 4);
 
 -- =========================
