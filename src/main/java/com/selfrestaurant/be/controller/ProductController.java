@@ -22,23 +22,16 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<List<ProductResponse>> getAllProducts() {
-
-        return ResponseEntity.ok(
-                productService.getAllProducts());
+        return ResponseEntity.ok(productService.getAllProducts());
     }
 
     @GetMapping("/category/{categoryId}")
-    public ResponseEntity<List<ProductResponse>> getProductsByCategory(
-            @PathVariable Integer categoryId) {
-
-        return ResponseEntity.ok(
-                productService.getProductsByCategory(categoryId));
+    public ResponseEntity<List<ProductResponse>> getProductsByCategory(@PathVariable Integer categoryId) {
+        return ResponseEntity.ok(productService.getProductsByCategory(categoryId));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ProductResponse> getProductDetail(@PathVariable Integer id) {
-
-        return ResponseEntity.ok(
-                productService.getProductDetail(id));
+        return ResponseEntity.ok(productService.getProductDetail(id));
     }
 }

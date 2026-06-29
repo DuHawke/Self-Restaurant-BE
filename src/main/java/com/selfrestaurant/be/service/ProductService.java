@@ -17,71 +17,67 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ProductService {
 
-    private final ProductRepository productRepository;
+        private final ProductRepository productRepository;
 
-    public List<ProductResponse> getAllProducts() {
+        public List<ProductResponse> getAllProducts() {
 
-        return productRepository.findAll()
-                .stream()
-                .map(this::mapToResponse)
-                .toList();
-    }
+                return productRepository.findAll()
+                                .stream()
+                                .map(this::mapToResponse)
+                                .toList();
+        }
 
-    public List<ProductResponse> getProductsByCategory(Integer categoryId) {
+        public List<ProductResponse> getProductsByCategory(Integer categoryId) {
 
-        return productRepository
-                .findByCategoryId(categoryId)
-                .stream()
-                .map(this::mapToResponse)
-                .toList();
-    }
+                return productRepository
+                                .findByCategoryId(categoryId)
+                                .stream()
+                                .map(this::mapToResponse)
+                                .toList();
+        }
 
-    public ProductResponse getProductDetail(Integer productId) {
+        public ProductResponse getProductDetail(Integer productId) {
 
-        Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new RuntimeException("Product not found: " + productId));
+                Product product = productRepository.findById(productId)
+                                .orElseThrow(() -> new RuntimeException("Product not found: " + productId));
 
-        return mapToResponse(product);
-    }
+                return mapToResponse(product);
+        }
 
-    private ProductResponse mapToResponse(Product p) {
+        private ProductResponse mapToResponse(Product p) {
+                List<OptionGroupResponse> optionGroupResponses = p.getOptionGroups().stream()
+                                .map(this::mapOptionGroup)
+                                .toList();
 
-        // Bug BE-1 fix: map đầy đủ categoryId, categoryName, optionGroups
-        // Trước: chỉ map productId/productName/productPrice/productUrl → thiếu category + options
-        // Note: field trong Product là "categoryId" nhưng type là Category object (naming misleading)
-        List<OptionGroupResponse> optionGroupResponses = p.getOptionGroups().stream()
-                .map(this::mapOptionGroup)
-                .toList();
+                return ProductResponse.builder()
+                                .productId(p.getProductId())
+                                .productName(p.getProductName())
+                                .productPrice(p.getProductPrice())
+                                .productUrl(p.getProductUrl())
+                                .categoryId(p.getCategoryId().getCategoryId())
+                                .categoryName(p.getCategoryId().getCategoryName())
+                                .optionGroups(optionGroupResponses)
+                                .build();
+        }
 
-        return ProductResponse.builder()
-                .productId(p.getProductId())
-                .productName(p.getProductName())
-                .productPrice(p.getProductPrice())
-                .productUrl(p.getProductUrl())              // image URL (sau khi sửa data.sql)
-                .categoryId(p.getCategoryId().getCategoryId())   // Bug BE-1: lấy từ Category object
-                .categoryName(p.getCategoryId().getCategoryName())
-                .optionGroups(optionGroupResponses)              // Bug BE-1: map optionGroups
-                .build();
-    }
+        private OptionGroupResponse mapOptionGroup(OptionGroup group) {
 
-    private OptionGroupResponse mapOptionGroup(OptionGroup group) {
+                List<OptionResponse> optionResponses = group.getOptions().stream()
+                                .map(opt -> OptionResponse.builder()
+                                                .optionId(opt.getOptionId())
+                                                .optionName(opt.getOptionName())
+                                                .optionPrice(opt.getOptionPrice())
+                                                .groupId(group.getGroupId())
+                                                .groupName(group.getGroupName())
+                                                .build())
+                                .toList();
 
-        List<OptionResponse> optionResponses = group.getOptions().stream()
-                .map(opt -> OptionResponse.builder()
-                        .optionId(opt.getOptionId())
-                        .optionName(opt.getOptionName())
-                        .optionPrice(opt.getOptionPrice())
-                        .groupId(group.getGroupId())
-                        .groupName(group.getGroupName())
-                        .build())
-                .toList();
-
-        return OptionGroupResponse.builder()
-                .groupId(group.getGroupId())
-                .groupName(group.getGroupName())
-                .required(group.isRequired())
-                .productId(group.getProduct().getProductId())
-                .options(optionResponses)
-                .build();
-    }
+                return OptionGroupResponse.builder()
+                                .groupId(group.getGroupId())
+                                .groupName(group.getGroupName())
+                                .required(group.isRequired())
+                                .productId(group.getProduct().getProductId())
+                                .options(optionResponses)
+                                .build();
+        }
 }
