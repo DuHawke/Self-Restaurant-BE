@@ -1,6 +1,3 @@
--- Bug BE-3 fix: thay slug ("black-coffee") bằng image URL thật
--- product_url / category_url giờ chứa URL ảnh để FE dùng trực tiếp
-
 -- =========================
 -- 1) CATEGORY
 -- =========================
@@ -19,12 +16,23 @@ INSERT INTO product (product_id, product_name, product_price, product_url, categ
 
 (3, 'Classic Milk Tea',        45000.00, 'https://i.pinimg.com/736x/3b/1b/77/3b1b77d67d2b643ad36ebd29170df649.jpg', 2),
 (4, 'Brown Sugar Milk Tea',    50000.00, 'https://i.pinimg.com/736x/1a/83/3f/1a833f1bf636f9034328b036476fd59c.jpg', 2),
+(5, 'Roasted Oolong Milk Tea',    50000.00, 'https://i.pinimg.com/1200x/9c/84/8e/9c848ed2eb2b43fd82147879750f80d2.jpg', 2),
+(6, 'Green Thai Milk Tea',    50000.00, 'https://i.pinimg.com/736x/1a/83/3f/1a833f1bf636f9034328b036476fd59c.jpg', 2),
+(7, 'Red Thai Milk Tea',    50000.00, 'https://i.pinimg.com/736x/3b/1b/77/3b1b77d67d2b643ad36ebd29170df649.jpg', 2),
 
-(5, 'Peach Tea',               40000.00, 'https://i.pinimg.com/736x/13/29/2f/13292f0a2609c317a663c29128414934.jpg', 3),
-(6, 'Lemon Tea',               35000.00, 'https://i.pinimg.com/1200x/01/6c/44/016c440dafbfaff46b8ebdf5071bd539.jpg', 3),
+(8, 'Peach Tea',               40000.00, 'https://i.pinimg.com/736x/13/29/2f/13292f0a2609c317a663c29128414934.jpg', 3),
+(9, 'Lemon Tea',               35000.00, 'https://i.pinimg.com/1200x/01/6c/44/016c440dafbfaff46b8ebdf5071bd539.jpg', 3),
+(10, 'Peach, Orange, and Lemongrass Tea',               35000.00, 'https://i.pinimg.com/736x/13/29/2f/13292f0a2609c317a663c29128414934.jpg', 3),
+(11, 'Longan Jasmine Tea',               35000.00, 'https://i.pinimg.com/1200x/01/6c/44/016c440dafbfaff46b8ebdf5071bd539.jpg', 3),
+(12, 'Strawberry Jasmine Tea',               35000.00, 'https://i.pinimg.com/1200x/00/d8/1a/00d81a88d38638e506c530d3a3798a3f.jpg', 3),
+(13, 'Lychee Artichoke Jasmine Tea',               35000.00, 'https://i.pinimg.com/1200x/5e/63/e6/5e63e6ffe3019bd6ba9f7bad24062266.jpg', 3),
 
-(7, 'Matcha Latte',            55000.00, 'https://i.pinimg.com/736x/28/b0/7f/28b07f5c9a74fdcbc84c465cf54571a8.jpg', 4),
-(8, 'Houjicha Latte',          55000.00, 'https://i.pinimg.com/1200x/70/9e/59/709e599c84610aca9a1dbcfb233e2055.jpg', 4);
+(14, 'Matcha Latte',            55000.00, 'https://i.pinimg.com/736x/28/b0/7f/28b07f5c9a74fdcbc84c465cf54571a8.jpg', 4),
+(15, 'Houjicha Latte',          55000.00, 'https://i.pinimg.com/1200x/70/9e/59/709e599c84610aca9a1dbcfb233e2055.jpg', 4),;
+(16, 'Iced Blended Matcha',          55000.00, 'https://i.pinimg.com/1200x/63/23/f9/6323f999dcfde756c62589d16e1df2cf.jpg', 4),;
+(17, 'Golden Orange Matcha',          55000.00, 'https://i.pinimg.com/736x/52/68/d4/5268d4aeeaaf347520a221ad55604202.jpg', 4),;
+(18, 'Coco Houjicha',          55000.00, 'https://i.pinimg.com/1200x/95/fd/b9/95fdb92b5ee3d408a01a9494946f091f.jpg', 4),;
+(19, 'Cheese Houjicha (Roasted Green Tea)',          55000.00, 'https://i.pinimg.com/736x/28/18/b3/2818b36cf9dadaf45c4a467e7dc47aa2.jpg', 4);
 
 -- =========================
 -- 3) OPTION_GROUP
