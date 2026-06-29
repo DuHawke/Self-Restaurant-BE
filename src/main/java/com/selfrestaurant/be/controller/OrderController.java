@@ -22,17 +22,12 @@ public class OrderController {
     private final OrderService orderService;
 
     @PostMapping
-    public ResponseEntity<OrderResponse> createOrder(
-            @RequestBody CreateOrderRequest request) {
-
-        return ResponseEntity.ok(
-                orderService.createOrder(request));
+    public ResponseEntity<OrderResponse> createOrder(@RequestBody CreateOrderRequest request) {
+        return ResponseEntity.ok(orderService.createOrder(request));
     }
 
     @GetMapping("/{orderId}")
     public ResponseEntity<OrderResponse> getOrder(@PathVariable Integer orderId) {
-
-        return ResponseEntity.ok(
-                orderService.getOrder(orderId));
+        return ResponseEntity.ok(orderService.getOrder(orderId));
     }
 }
