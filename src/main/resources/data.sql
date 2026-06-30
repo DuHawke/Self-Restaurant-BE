@@ -40,9 +40,6 @@ INSERT INTO product (product_id, product_name, product_price, product_url, categ
 
 -- =========================
 -- 3) OPTION_GROUP
--- Bug fix: trước đây chỉ map cho product_id 1-8 (8 sản phẩm cũ).
--- Giờ map đầy đủ cho cả 19 sản phẩm — mỗi sản phẩm có nhóm "Size" (bắt buộc)
--- và 1 nhóm tùy chọn phụ theo loại đồ uống.
 -- =========================
 INSERT INTO option_group (group_id, group_name, required, product_id) VALUES
 
@@ -94,7 +91,6 @@ INSERT INTO option_group (group_id, group_name, required, product_id) VALUES
 
 -- =========================
 -- 4) OPTION
--- Bug fix: đánh số lại đầy đủ option_id cho 38 nhóm ở trên.
 -- =========================
 INSERT INTO options (option_id, option_name, option_price, group_id) VALUES
 
@@ -233,7 +229,6 @@ INSERT INTO orders (order_id, total_quantity, total_amount) VALUES
 
 -- =========================
 -- 6) ORDER_ITEM (seed)
--- Bug fix: product_id phải khớp với bảng PRODUCT mới (1-19).
 -- =========================
 INSERT INTO order_item (order_item_id, order_id, product_id, quantity, unit_price) VALUES
 (1, 1, 3,  1, 55000.00), -- Classic Milk Tea (Size L + Pearl)
@@ -244,7 +239,6 @@ INSERT INTO order_item (order_item_id, order_id, product_id, quantity, unit_pric
 
 -- =========================
 -- 7) ORDER_ITEM_SELECTED_OPTIONS (seed)
--- Bug fix: option_id phải khớp với bảng OPTION mới (đánh số lại từ 1-88).
 -- =========================
 INSERT INTO order_item_selected_options (order_item_id, option_id) VALUES
 (1, 12), -- Classic Milk Tea: Size L (group 5)
